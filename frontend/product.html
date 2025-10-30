@@ -1,0 +1,51 @@
+<!-- frontend/products.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Product Details - Gaeinova Magic</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">🪔 Gaeinova Magic</div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/cart">🛒 Cart (<span id="cartCount">0</span>)</a>
+                <a href="/login" id="authLink">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="padding: 3rem 0;">
+        <div id="productDetail">
+            <p style="text-align: center; padding: 2rem;">Loading product...</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Gaeinova Magic. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/scripts.js"></script>
+    <script>
+        // Get product ID from URL
+        const productId = window.location.pathname.split('/').pop();
+        
+        window.onload = () => {
+            updateAuthUI();
+            updateCartCount();
+            if (productId) {
+                loadProductDetail(productId);
+            }
+        };
+    </script>
+</body>
+</html>

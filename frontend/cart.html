@@ -1,0 +1,52 @@
+<!-- frontend/cart.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Shopping Cart - Gaeinova Magic</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">🪔 Gaeinova Magic</div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/cart">🛒 Cart (<span id="cartCount">0</span>)</a>
+                <a href="/login" id="authLink">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container cart-container">
+        <h1 style="text-align: center; margin-bottom: 2rem; color: var(--secondary);">Shopping Cart</h1>
+        
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+            <div class="cart-items" id="cartItems">
+                <p style="text-align: center; padding: 2rem;">Loading cart...</p>
+            </div>
+            
+            <div class="cart-summary" id="cartSummary"></div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Gaeinova Magic. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/scripts.js"></script>
+    <script>
+        window.onload = () => {
+            updateAuthUI();
+            updateCartCount();
+            loadCart();
+        };
+    </script>
+</body>
+</html>

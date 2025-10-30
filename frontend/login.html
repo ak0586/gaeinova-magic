@@ -1,0 +1,75 @@
+<!-- login.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login - Gaeinova Magic</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">🪔 Gaeinova Magic</div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/register">Register</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="auth-container">
+        <h1 style="text-align: center; color: var(--secondary); margin-bottom: 2rem;">Login</h1>
+        
+        <form onsubmit="handleLogin(event)" class="auth-form">
+            <input type="text" id="loginUsername" placeholder="Username" required>
+            
+            <div style="position: relative;">
+                <input type="password" id="loginPassword" placeholder="Password" required 
+                       style="width: 100%; padding-right: 45px;">
+                <button type="button" onclick="togglePassword('loginPassword', 'loginToggle')" 
+                        style="position: absolute; right: 10px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; font-size: 1.2rem;">
+                    <span id="loginToggle">👁️</span>
+                </button>
+            </div>
+            
+            <button type="submit">Login</button>
+        </form>
+        
+        <p style="text-align: center; margin-top: 1rem;">
+            Don't have an account? <a href="/register" style="color: var(--primary);">Register here</a>
+        </p>
+        
+        <div style="background: var(--accent); padding: 1rem; border-radius: 8px; margin-top: 2rem;">
+            <p style="font-weight: bold; margin-bottom: 0.5rem;">Demo Credentials:</p>
+            <p style="font-size: 0.9rem;">Username: admin</p>
+            <p style="font-size: 0.9rem;">Password: admin123</p>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Gaeinova Magic. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/scripts.js"></script>
+    <script>
+        function togglePassword(inputId, toggleId) {
+            const input = document.getElementById(inputId);
+            const toggle = document.getElementById(toggleId);
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                toggle.textContent = '🙈';
+            } else {
+                input.type = 'password';
+                toggle.textContent = '👁️';
+            }
+        }
+    </script>
+</body>
+</html>

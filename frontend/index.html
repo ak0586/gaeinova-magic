@@ -1,0 +1,166 @@
+<!-- frontend/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gaeinova Magic - Light Up Your Diwali</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">🪔 Gaeinova Magic</div>
+            <div class="search-bar">
+                <input type="text" id="searchInput" placeholder="Search candles...">
+                <button onclick="searchProducts()">🔍</button>
+            </div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="#" onclick="showCart()">🛒 Cart (<span id="cartCount">0</span>)</a>
+                <a href="/login" id="authLink">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="hero-content">
+            <h1>🪔 Light Up Your Diwali with Gaeinova Magic !</h1>
+            <p>Handcrafted premium candles for every celebration</p>
+            <button class="cta-button" onclick="scrollToProducts()">Shop Now</button>
+        </div>
+    </section>
+
+    <!-- Featured Products -->
+    <section class="featured-section">
+        <div class="container">
+            <h2 class="section-title">✨ Featured Collections</h2>
+            <div id="featuredProducts" class="product-grid"></div>
+        </div>
+    </section>
+
+    <!-- Offers -->
+    <section class="offers-section">
+        <div class="container">
+            <h2 class="section-title">🎁 Special Offers</h2>
+            <div class="offers-grid">
+                <div class="offer-card">
+                    <h3>Under ₹100</h3>
+                    <p>Amazing candles for every budget</p>
+                    <button onclick="filterByPrice(0, 100)">Shop Now</button>
+                </div>
+                <div class="offer-card premium">
+                    <h3>Premium Collection</h3>
+                    <p>Luxury candles ₹499+</p>
+                    <button onclick="filterByPrice(499, 1000)">Explore</button>
+                </div>
+                <div class="offer-card">
+                    <h3>Gift Combos</h3>
+                    <p>FREE Mini Jar with every combo!</p>
+                    <button onclick="filterByCategory('Gift Combos')">View Combos</button>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Categories -->
+    <section class="categories-section">
+        <div class="container">
+            <h2 class="section-title">Shop by Category</h2>
+            <div id="categories" class="categories-grid"></div>
+        </div>
+    </section>
+
+    <!-- All Products -->
+    <section id="productsSection" class="products-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">All Products</h2>
+                <div class="filters">
+                    <select id="categoryFilter" onchange="applyFilters()">
+                        <option value="">All Categories</option>
+                    </select>
+                    <select id="sortFilter" onchange="applyFilters()">
+                        <option value="">Sort By</option>
+                        <option value="price_asc">Price: Low to High</option>
+                        <option value="price_desc">Price: High to Low</option>
+                    </select>
+                </div>
+            </div>
+            <div id="allProducts" class="product-grid"></div>
+        </div>
+    </section>
+
+    <!-- Newsletter -->
+    <section class="newsletter-section">
+        <div class="container">
+            <h2>Subscribe to Our Newsletter</h2>
+            <p>Get exclusive offers and updates</p>
+            <form onsubmit="subscribeNewsletter(event)" class="newsletter-form">
+                <input type="email" id="newsletterEmail" placeholder="Enter your email" required>
+                <button type="submit">Subscribe</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Contact -->
+    <section class="contact-section">
+        <div class="container">
+            <h2 class="section-title">Contact Us</h2>
+            <form onsubmit="sendMessage(event)" class="contact-form">
+                <input type="text" id="contactName" placeholder="Your Name" required>
+                <input type="email" id="contactEmail" placeholder="Your Email" required>
+                <input type="mobile" id="contactMobile" placeholder="Your Mobile" required>
+                <textarea id="contactMessage" placeholder="Your Message" rows="5" required></textarea>
+                <button type="submit">Send Message</button>
+            </form>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div class="footer-col">
+                    <h3>About Gaeinova Magic</h3>
+                    <p>Handcrafted premium candles for every celebration. Made with love and natural ingredients.</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Quick Links</h3>
+                    <ul>
+                        <li><a href="/">Home</a></li>
+                        <li><a href="#productsSection">Products</a></li>
+                        <li><a href="/admin" id="adminLink" style="display: none;">Admin Dashboard</a></li>
+                    </ul>
+                </div>
+                <div class="footer-col">
+                    <h3>Contact</h3>
+                    <p>📧 gaeinova.magic@gmail.com</p>
+                    <p>📱 +91 8851587898</p>
+                </div>
+                <div class="footer-col">
+                    <h3>Follow Us</h3>
+                    <p>🔗 Facebook | Instagram | Twitter</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <p>&copy; 2025 Gaeinova Magic Candles. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/scripts.js"></script>
+    <script>
+        // Initialize page
+        window.onload = () => {
+            loadFeaturedProducts();
+            loadCategories();
+            loadAllProducts();
+            updateAuthUI();
+            updateCartCount();
+        };
+    </script>
+</body>
+</html>

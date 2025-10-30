@@ -1,0 +1,71 @@
+<!-- frontend/checkout.html -->
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Checkout - Gaeinova Magic</title>
+    <link rel="stylesheet" href="/static/styles.css">
+</head>
+<body>
+    <nav class="navbar">
+        <div class="container nav-container">
+            <div class="logo">🪔 Gaeinova Magic</div>
+            <div class="nav-links">
+                <a href="/">Home</a>
+                <a href="/cart">🛒 Cart (<span id="cartCount">0</span>)</a>
+                <a href="/login" id="authLink">Login</a>
+            </div>
+        </div>
+    </nav>
+
+    <div class="container" style="padding: 3rem 0;">
+        <h1 style="text-align: center; margin-bottom: 2rem; color: var(--secondary);">Checkout</h1>
+        
+        <div style="display: grid; grid-template-columns: 2fr 1fr; gap: 2rem;">
+            <div style="background: white; padding: 2rem; border-radius: 15px;">
+                <h2>Shipping Information</h2>
+                <form onsubmit="placeOrder(event)" class="contact-form">
+                    <input type="text" id="shippingAddress" placeholder="Complete Shipping Address" required>
+                    <input type="tel" id="shippingPhone" placeholder="Phone Number" required>
+                    
+                    <h3 style="margin-top: 2rem;">Payment Method</h3>
+                    <select id="paymentMethod" required style="padding: 1rem; border: 2px solid var(--primary); border-radius: 8px; width: 100%;">
+                        <option value="cod">Cash on Delivery</option>
+                        <option value="razorpay">Online Payment (Razorpay - Coming Soon)</option>
+                    </select>
+                    
+                    <button type="submit" style="margin-top: 2rem; background: var(--primary); color: white; padding: 1rem; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; width: 100%; font-size: 1.1rem;">
+                        Place Order
+                    </button>
+                </form>
+            </div>
+            
+            <div style="background: white; padding: 2rem; border-radius: 15px; position: sticky; top: 100px;">
+                <h2>Order Summary</h2>
+                <div id="checkoutSummary" style="margin-top: 1rem;">
+                    <p>Loading...</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-bottom">
+                <p>&copy; 2025 Gaeinova Magic. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="/static/scripts.js"></script>
+    <script>
+        window.onload = () => {
+            updateAuthUI();
+            updateCartCount();
+            loadCheckout();
+        };
+    </script>
+</body>
+</html>
