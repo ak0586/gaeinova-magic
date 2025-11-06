@@ -104,6 +104,11 @@ def get_current_user(token: str = Depends(oauth2_scheme), db: Session = Depends(
 @app.on_event("startup")
 async def startup_event():
     db = next(get_db())
+    # Read from environment variables (fallbacks are optional)
+    admin_email = os.getenv("ADMIN_EMAIL", "admin@example.com")
+    admin_username = os.getenv("ADMIN_USERNAME", "admin")
+    admin_password = os.getenv("ADMIN_PASSWORD", "change_this_password")
+    admin_name= os.getenv("ADMIN_NAME", "Admin User")
     
     # Create admin user if not exists
     admin = db.query(models.User).filter(models.User.username == "Anishka24").first()
@@ -112,10 +117,10 @@ async def startup_event():
     else:
         print("🟢 Creating default admin user...")
         admin = models.User(
-            email="gaeinova.magic@gmail.com",
-            username="Anishka24",
-            hashed_password=get_password_hash("Anishka@2000"),
-            full_name="Anishka Singh",
+            email=admin_email,
+            username=admin_username,
+            hashed_password=get_password_hash(admin_password),
+            full_name=admin_name,
             is_admin=True
         )
         db.add(admin)
