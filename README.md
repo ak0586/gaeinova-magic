@@ -33,9 +33,8 @@ It features a **beautifully responsive frontend**, a **secure FastAPI backend**,
 
 | User Homepage | Product Detail | Admin Dashboard |
 |----------------|----------------|-----------------|
-| ![HomePage](https://github.com/ak0586/gaeinova-magic/blob/main/assets/Home.png) | ![Product Detail](https://github.com/ak0586/gaeinova-magic/blob/main/assets/Product_detail.png) | ![Admin Dashboard](https://github.com/ak0586/gaeinova-magic/blob/main/assets/Admin_1.png)),![Admin Dashboard]
-(https://github.com/ak0586/gaeinova-magic/blob/main/assets/Admin_2.png),![Admin Dashboard]
-(https://github.com/ak0586/gaeinova-magic/blob/main/assets/Admin_3.png) |
+| ![HomePage](https://github.com/ak0586/gaeinova-magic/blob/main/assets/Home.png) | ![Product Detail](https://github.com/ak0586/gaeinova-magic/blob/main/assets/Product_detail.png) | ![Admin Dashboard](https://github.com/ak0586/gaeinova-magic/blob/main/assets/Admin_1.png)<br>![Admin Dashboard](https://github.com/ak0586/gaeinova-magic/blob/main/assets/Admin_2.png)<br>
+![Admin Dashboard](https://github.com/ak0586/gaeinova-magic/blob/main/assets/Admin_3.png) |
 
 
 
